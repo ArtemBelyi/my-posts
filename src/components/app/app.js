@@ -151,7 +151,7 @@ export default class App extends Component {
         const {data, term, filter} = this.state; //деструктурируем из state
 
         const liked = this.state.data.filter((elem, index) => elem.like).length; //кол-во постов с лайками
-        const importanted = this.state.data.filter((elem, index) => elem.lmportant).length;
+        const importanted = this.state.data.filter((elem, index) => elem.important).length;
         const allPosts = this.state.data.length; // всего постов
 
         const visiblePosts = this.filterPost(this.searchPost(data, term), filter);
