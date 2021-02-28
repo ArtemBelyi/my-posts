@@ -134,11 +134,14 @@ export default class App extends Component {
     filterPost (items, filter) {
         if (filter === 'like') {
             return items.filter(item => item.like);
-        } else {
+        } 
+        else if (filter === 'important') {
+            return items.filter(item => item.important);
+        }
+        else {
             return items
         }
     }
-
     onFilterSelect(filter) {
         this.setState({filter: filter})
     }
