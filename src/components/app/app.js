@@ -28,10 +28,11 @@ export default class App extends Component {
         super(props);
         this.state = {
             data: [
-                {label: 'Going to learn React', important: false, like: false, id: "1"},
-                {label: 'Going to learn React', important: false, like: false, id: "2"},
-                {label: 'Going to learn React', important: false, like: false, id: "3"},
-                {label: 'Going to learn Vue', important: false, like: false, id: "4"}
+                {label: 'Yesterday I watched "The Man from the Boulevard des Capucines"', important: false, like: false, id: "1"},
+                {label: 'Today it is -40 frost outside', important: false, like: true, id: "2"},
+                {label: 'Going to learn React.js', important: false, like: false, id: "3"},
+                {label: 'Going to learn Nuxt.js', important: false, like: false, id: "4"},
+                {label: 'Going to learn Vue.js', important: false, like: false, id: "5"}
             ],
             term: '',
             filter: 'all'
@@ -43,7 +44,7 @@ export default class App extends Component {
         this.onUpdateSearch = this.onUpdateSearch.bind(this);
         this.onFilterSelect = this.onFilterSelect.bind(this);
 
-        this.maxId = 4;
+        this.maxId = 30;
     }
 
     // функция замены текущего state новым с учетом удаленного элемента
@@ -150,6 +151,7 @@ export default class App extends Component {
         const {data, term, filter} = this.state; //деструктурируем из state
 
         const liked = this.state.data.filter((elem, index) => elem.like).length; //кол-во постов с лайками
+        const importanted = this.state.data.filter((elem, index) => elem.lmportant).length;
         const allPosts = this.state.data.length; // всего постов
 
         const visiblePosts = this.filterPost(this.searchPost(data, term), filter);
@@ -158,7 +160,8 @@ export default class App extends Component {
             <AppBlock>
                 <AppHeader
                 liked={liked}
-                allPosts={allPosts}/>
+                allPosts={allPosts}
+                importanted={importanted}/>
                 <div className="search-panel d-flex">
                     <SearchPanel
                     onUpdateSearch={this.onUpdateSearch}/>
