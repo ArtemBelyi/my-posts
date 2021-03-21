@@ -1,3 +1,4 @@
+My first React project
 
 You can see this project live at the following URL: https://artembelyi.github.io/my-posts/
 
